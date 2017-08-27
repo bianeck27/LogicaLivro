@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" id="numero">
+    <input type="submit" id="adivinhar" value="Compare com o meu segredo!">
+    <script>
+        var segredos = [2,7,27,72,22,77];
+        
+        var caixaDoTexto = document.getElementById("numero");
+        var botaoAdivinhar = document.getElementById("adivinhar");
+
+        var botaoClicado = function(){
+            var achado = false;
+            for(var i=0;i<segredos.length;i++){
+                if(segredos[i] == caixaDoTexto.value){
+                    alert("Parabéns, você acertou! o número é "+segredos[i]);
+                    return;
+                }
+            }
+            
+                alert("Você não acertou.");
+                segredos.push(parseInt(caixaDoTexto.value));
+            
+            caixaDoTexto.value = "";
+        }
+        
+        botaoAdivinhar.onclick = botaoClicado;
+    </script>
+</body>
+</html>

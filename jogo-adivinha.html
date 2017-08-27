@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jogo de adivinhação</title>
+</head>
+<body>
+    <script>
+        var numSorte = Math.round(Math.random()*10);
+
+        var chute; 
+        alert("Vamos Brincar de Adivinhação? Já pensei em um número, qual você acha que é?.");
+        var tentativas = 0;
+        var numTentativas = prompt("Quantas Tentativas pra acertar?");
+        numTentativas = parseInt(numTentativas);
+        var acertei = false;
+
+        for(tentativas = 1;tentativas<=numTentativas;tentativas++){
+            chute = prompt("Digite um numero de 0 a 10");
+            chute = parseInt(chute);
+            if(chute == numSorte){
+                acertei = true;
+                break;
+            }
+
+        }
+
+
+
+        
+        if(acertei){
+            alert("Que Beleza! em "+tentativas+" tentativa(s) você acertou!");
+            
+        }else{
+            alert("Que Feio, Pé Frio! em "+numTentativas+" tentativa(s) você não acertou.");
+            
+        }
+        alert("Pensei no numero "+numSorte);
+        
+        alert("Vamos de par ou ímpar agora? Vou deixar vc escolher:");
+        
+        var escolhaUser;
+        var escolhaComp;
+        do {
+            escolhaUser = prompt("Digite 1 para ímpar ou 2 para par.");
+            escolhaUser = parseInt(escolhaUser);
+        } while (!(escolhaUser == 1 || escolhaUser == 2));
+        
+
+        if(escolhaUser == 1){
+            alert("Ótimo! Já que escolheu Ímpar, só me resta Par!");
+            escolhaComp = 2;
+        }else{
+            alert("Ótimo! Já que escolheu Par, só me resta Ímpar!");
+            escolhaComp = 1;
+        }
+
+        alert("Vamos lá então! Já tenho meu numero e sou bem honesta!");
+        numSorte = Math.round(Math.random()*10);
+        var meuNumero; 
+        do {
+            meuNumero = prompt("Qual numero escolhe de 0 a 10?");
+            meuNumero = parseInt(meuNumero);
+        } while (!(meuNumero>=0 && meuNumero <= 10));
+
+        var soma = meuNumero + numSorte;
+        alert("Eu pensei em "+numSorte+", e vc pensou no "+meuNumero+". Somando os dois dá "+soma+".");
+        if((soma%2)==0){
+            alert(soma+" é par!");
+            if(escolhaComp==2){
+                alert("Isso Significa que eu GANHEI!");
+            }else{
+                alert("Isso Significa que eu Perdi :(");
+            }
+        }else{
+            alert(soma+" é ímpar!");
+            if(escolhaComp==1){
+                alert("Isso Significa que eu GANHEI!");
+            }else{
+                alert("Isso Significa que eu Perdi :(");
+            }
+        }
+
+        
+
+
+    </script>
+    
+</body>
+</html>

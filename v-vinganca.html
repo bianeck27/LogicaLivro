@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var colunas=33;
+        var linhas=(colunas+1)/2;
+        var caracter = "$";
+        var espaco = "+";
+        
+        for(var linha=0;linha<linhas;linha++){
+            for(var coluna=0;coluna<colunas;coluna++){
+                if(coluna==linha || coluna==colunas-(linha+1)){
+                    document.write(caracter);
+                }else{
+                    document.write(espaco);
+                }
+            }
+            document.write("<br>");
+        }
+    </script>
+</body>
+</html>

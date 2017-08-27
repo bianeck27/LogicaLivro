@@ -14,12 +14,20 @@
         var capTanque = 40;
         var consumoGasolina = calculaConsumo(caminhoComGasolina,capTanque);
         var consumoAlcool = calculaConsumo(caminhoComAlcool,capTanque);
-        
+        var precoGasolina = 2.9;
+        var precoAlcool = 2.4;
+        var precoKmGasolina = precoKm(precoGasolina,consumoGasolina);
+        var precoKmAlcool = precoKm(precoAlcool,consumoAlcool);
+
+
         function pulaLinha(){
             document.write("<br>");
         }
         function calculaConsumo(km,capacidade){
             return km / capacidade;
+        }
+        function precoKm(precoLitro,consumo){
+            return  precoLitro/consumo;
         }
         document.write("Capacidade do tanque: "+capTanque);
         pulaLinha();
@@ -28,10 +36,20 @@
         document.write("Caminho com Alcool: "+caminhoComAlcool);
         pulaLinha();
         document.write("<hr>");
-        document.write("Consumo de Gasolina: "+consumoGasolina);
+        document.write("Consumo de Gasolina: "+consumoGasolina.toFixed(2));
         pulaLinha();
-        document.write("Consumo de Alcool: "+consumoAlcool);
+        document.write("Consumo de Alcool: "+consumoAlcool.toFixed(2));
         pulaLinha();
+        document.write("Preço da Gasolina: R$ "+precoGasolina.toFixed(2));
+        pulaLinha();
+        document.write("Preço do Alcool: R$ "+precoAlcool.toFixed(2));
+        pulaLinha();
+        document.write("<hr>");
+        document.write("Preço por Quilômetro Gasolina: R$ "+precoKmGasolina.toFixed(2));
+        pulaLinha();
+        document.write("Preço por Quilômetro Alcool: R$ "+precoKmAlcool.toFixed(2));
+        pulaLinha();
+
     </script>
     
 </body>

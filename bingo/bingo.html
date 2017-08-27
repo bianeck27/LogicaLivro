@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sorteador de Números de Bingo</title>
+</head>
+<body>
+    <script>
+    var arrBingo=[];
+
+    function sorteiaNumero(){
+        var numero = Math.round(Math.random()*75);
+        for(var i=0;i<arrBingo.length;i++){
+            if(numero == arrBingo[i]){
+                sorteiaNumero();
+            }
+        }
+        arrBingo.push(numero);
+        return numero;
+    }
+
+    function letraNumero (numero) {
+        if (numero >= 0 && numero <= 15) {
+            return "B";
+        }else if (numero > 15 && numero <= 30) {
+            return "I";
+        }else if (numero > 30 && numero <= 45) {
+            return "N";
+        }else if(numero > 45 && numero <= 60){
+            return "G";
+        }else if(numero > 60 && numero <= 75){
+            return "O";
+        }else{
+            return "X";
+        }
+    }
+    function mostraSorteado(numero){
+        return letraNumero(numero)+" - "+numero;
+    }
+    
+    
+     
+        var tentativa = 0;
+        do {
+            tentativa++;
+            var numero = sorteiaNumero();
+            alert(mostraSorteado(numero));
+        } while (tentativa<5);
+        
+        do {
+            numero = sorteiaNumero();
+            alert(mostraSorteado(numero));
+            var termina = prompt("Alguém bingou?");
+                            
+        } while (termina != "s");
+        
+        var tamanhoArray = arrBingo.length;
+        for(var i = 0; i < tamanhoArray; i++){
+            document.write(mostraSorteado(arrBingo[i]));
+            document.write("<br>");
+        }
+        
+        
+        
+    
+
+    </script>
+</body>
+</html>
